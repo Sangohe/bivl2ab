@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-// User model
+// Project model
 const Project = require('../../models/Project');
 
-// @route GET api/users
-// @desc Get all users
+// @route GET api/projects
+// @desc Get all projects
 // @access Private
 router.get('/', (req, res) => {
     Project.find()
@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
         .then(projects => res.json(projects))
 });
 
-// @route GET api/users
-// @desc Create user
+// @route GET api/projects
+// @desc Create project
 // @access Private
 router.post('/', (req, res) => {
     const newProject = new Project({

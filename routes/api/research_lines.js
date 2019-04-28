@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-// User model
+// ResearchLine model
 const ResearchLine = require('../../models/Research_line');
 
-// @route GET api/users
-// @desc Get all users
+// @route GET api/research_lines
+// @desc Get all research_lines
 // @access Private
 router.get('/', (req, res) => {
     ResearchLine.find()
@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
         .then(research_lines => res.json(research_lines))
 });
 
-// @route GET api/users
-// @desc Create user
+// @route GET api/research_lines
+// @desc Create research_line
 // @access Private
 router.post('/', (req, res) => {
     const newResearchLine = new ResearchLine({

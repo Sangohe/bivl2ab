@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-// User model
+// ResearchSubline model
 const ResearchSubline = require('../../models/Research_subline');
 
-// @route GET api/users
-// @desc Get all users
+// @route GET api/research_sublines
+// @desc Get all research_sublines
 // @access Private
 router.get('/', (req, res) => {
     ResearchSubline.find()
@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
         .then(research_sublines => res.json(research_sublines))
 });
 
-// @route GET api/users
-// @desc Create user
+// @route GET api/research_sublines
+// @desc Create research_subline
 // @access Private
 router.post('/', (req, res) => {
     const newResearchSubline = new ResearchSubline({

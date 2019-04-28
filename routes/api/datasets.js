@@ -26,4 +26,13 @@ router.post('/', (req, res) => {
     newDataset.save().then(dataset => res.json(dataset)).catch(err => console.log(err));
 });
 
+// @route DELETE api/datasets/:id
+// @desc Delete dataset
+// @access Private
+router.post('/:id', (req, res) => {
+    Dataset.findById(req.params.id)
+        .then(dataset => dataset.remove().then(() => res.json({ success: true })))
+        .catch(err => res.status(404).json({ success: true }))
+});
+
 module.exports = router;

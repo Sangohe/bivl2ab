@@ -25,4 +25,13 @@ router.post('/', (req, res) => {
     newNew.save().then(notice => res.json(notice)).catch(err => console.log(err));
 });
 
+// @route DELETE api/news/:id
+// @desc Delete notice
+// @access Private
+router.post('/:id', (req, res) => {
+    New.findById(req.params.id)
+        .then(notice => notice.remove().then(() => res.json({ success: true })))
+        .catch(err => res.status(404).json({ success: true }))
+});
+
 module.exports = router;

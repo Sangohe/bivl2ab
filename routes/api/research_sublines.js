@@ -25,4 +25,13 @@ router.post('/', (req, res) => {
     newResearchSubline.save().then(research_subline => res.json(research_subline)).catch(err => console.log(err));
 });
 
+// @route DELETE api/resesearch_sublines/:id
+// @desc Delete research_subline
+// @access Private
+router.post('/:id', (req, res) => {
+    ResearchSubline.findById(req.params.id)
+        .then(research_subline => research_subline.remove().then(() => res.json({ success: true })))
+        .catch(err => res.status(404).json({ success: true }))
+});
+
 module.exports = router;

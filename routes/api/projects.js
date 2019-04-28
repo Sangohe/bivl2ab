@@ -28,4 +28,13 @@ router.post('/', (req, res) => {
     newProject.save().then(project => res.json(project)).catch(err => console.log(err));
 });
 
+// @route DELETE api/projects/:id
+// @desc Delete project
+// @access Private
+router.post('/:id', (req, res) => {
+    Project.findById(req.params.id)
+        .then(project => project.remove().then(() => res.json({ success: true })))
+        .catch(err => res.status(404).json({ success: true }))
+});
+
 module.exports = router;

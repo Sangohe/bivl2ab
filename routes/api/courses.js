@@ -24,4 +24,13 @@ router.post('/', (req, res) => {
     newCourse.save().then(course => res.json(course)).catch(err => console.log(err));
 });
 
+// @route DELETE api/courses/:id
+// @desc Delete course
+// @access Private
+router.post('/:id', (req, res) => {
+    Course.findById(req.params.id)
+        .then(course => course.remove().then(() => res.json({ success: true })))
+        .catch(err => res.status(404).json({ success: true }))
+});
+
 module.exports = router;

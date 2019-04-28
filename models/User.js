@@ -12,7 +12,6 @@ const UserSchema = new Schema({
     education: { type: 'String', required: true },
     photo: { type: 'String' },
     biography: { type: 'String' },
-    production: { type: [{ type: Schema.Types.ObjectId, ref: 'Product' }] },
     projects: { type: [{ type: Schema.Types.ObjectId, ref: 'Project' }] },
 }, { timestamps: true });
 

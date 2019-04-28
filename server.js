@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 
 // models
 const users = require('./routes/api/users');
+const research_lines = require('./routes/api/research_lines');
+const research_sublines = require('./routes/api/research_sublines');
+const projects = require('./routes/api/projects');
 
 const app = express();
 
@@ -22,6 +25,9 @@ mongoose.set('useCreateIndex', true);
 
 // Use routes
 app.use('/api/users', users);
+app.use('/api/research_lines', research_lines);
+app.use('/api/research_sublines', research_sublines);
+app.use('/api/projects', projects);
 
 const port = process.env.PORT || 5000
 

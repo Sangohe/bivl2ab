@@ -28,11 +28,26 @@ const options = {
 class TeamSection extends React.Component {
   render() {
     const { classes } = this.props;
+    const responsive = {
+      0:{
+        items:1,
+        nav:true
+      },
+      600:{
+          items:2,
+          nav:false
+      },
+      1000:{
+          items:3,
+          nav:true,
+          loop:false
+      }
+    }
     return (
       <div className={classes.section}>
         <h2 className={classes.title}>News</h2>
         <div>
-            <OwlCarousel className="owl-theme" loop margin={10} nav autoplay={true} autoplayTimeout={5000}>
+            <OwlCarousel className="owl-theme" loop margin={10} nav autoplay={true} autoplayTimeout={5000} responsiveClass={true} responsive={responsive}>
               <div className="item">
                 <Card plain>
                   <GridItem xs={10} className={classes.itemGrid}>
